@@ -7,8 +7,10 @@ from models.user import User
 from models.amenity import Amenity
 from models import storage
 from api.v1.views import app_views
-from flask import abort, jsonify, make_response, request
+from flask import abort, jsonify, make_response, request, Blueprint
 from flasgger.utils import swag_from
+
+app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
 
 
 @app_views.route('/cities/<city_id>/places', methods=['GET'],
